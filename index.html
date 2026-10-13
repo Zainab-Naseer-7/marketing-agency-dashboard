@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MARKORA™ — Ultra-Premium Marketing Intelligence & Agency Management SaaS Platform. Track campaigns, clients, leads, ROI, and omnichannel performance from one powerful workspace.">
+  <meta name="keywords" content="marketing agency dashboard, marketing intelligence, campaign management, agency CRM, lead tracking, SEO analytics, social media dashboard, SaaS analytics">
+  <meta name="author" content="MARKORA Intelligence Group">
+  <title>MARKORA™ | Marketing Intelligence & Agency Management Platform</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. APP ROOT SHELL
+       ========================================================================= -->
+  <div id="app-root">
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- -----------------------------------------------------------------------
+         SIDEBAR NAVIGATION
+         ----------------------------------------------------------------------- -->
+    <aside class="app-sidebar" id="appSidebar" aria-label="Main Navigation">
+      <!-- Sidebar Header & Brand -->
+      <div class="sidebar-header">
+        <a href="#overview" class="brand-wrapper" id="brandHomeLink">
+          <div class="brand-icon-box">
+            <!-- Inline High-Precision Logo SVG -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19V5l8 7 8-7v14" />
+              <polyline points="14 10 20 4" />
+              <polyline points="14 4 20 4 20 10" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">MARKORA</span>
+            <span class="brand-subtitle">Marketing Intelligence</span>
+          </div>
+        </a>
+        <button class="sidebar-toggle-btn" id="sidebarCollapseBtn" title="Collapse Sidebar" aria-label="Toggle navigation width">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="11 17 6 12 11 7"></polyline>
+            <polyline points="18 17 13 12 18 7"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation Links List (All 15 Items) -->
+      <nav class="sidebar-nav" id="sidebarNav">
+        <span class="nav-section-label">Core Workspace</span>
+        
+        <a href="#overview" class="nav-item active" data-view="overview">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </span>
+          <span class="nav-label">Overview</span>
+        </a>
+
+        <a href="#campaigns" class="nav-item" data-view="campaigns">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </span>
+          <span class="nav-label">Campaigns</span>
+          <span class="nav-badge" id="navActiveCampaignsBadge">24</span>
+        </a>
+
+        <a href="#clients" class="nav-item" data-view="clients">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </span>
+          <span class="nav-label">Clients</span>
+        </a>
+
+        <a href="#leads" class="nav-item" data-view="leads">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          </span>
+          <span class="nav-label">Leads</span>
+          <span class="nav-badge" style="background: var(--secondary); color:#000;">New</span>
+        </a>
+
+        <a href="#analytics" class="nav-item" data-view="analytics">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </span>
+          <span class="nav-label">Analytics</span>
+        </a>
+
+        <span class="nav-section-label">Growth Channels</span>
+
+        <a href="#social" class="nav-item" data-view="social">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </span>
+          <span class="nav-label">Social Media</span>
+        </a>
+
+        <a href="#seo" class="nav-item" data-view="seo">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><path d="M11 8v6"></path><path d="M8 11h6"></path></svg>
+          </span>
+          <span class="nav-label">SEO</span>
+        </a>
+
+        <a href="#content" class="nav-item" data-view="content">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </span>
+          <span class="nav-label">Content</span>
+        </a>
+
+        <a href="#advertising" class="nav-item" data-view="advertising">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+          </span>
+          <span class="nav-label">Advertising</span>
+        </a>
+
+        <span class="nav-section-label">Operations & Tools</span>
+
+        <a href="#tasks" class="nav-item" data-view="tasks">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          </span>
+          <span class="nav-label">Tasks</span>
+          <span class="nav-badge" id="navPendingTasksBadge">8</span>
+        </a>
+
+        <a href="#calendar" class="nav-item" data-view="calendar">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </span>
+          <span class="nav-label">Calendar</span>
+        </a>
+
+        <a href="#reports" class="nav-item" data-view="reports">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </span>
+          <span class="nav-label">Reports</span>
+        </a>
+
+        <a href="#team" class="nav-item" data-view="team">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </span>
+          <span class="nav-label">Team</span>
+        </a>
+
+        <a href="#messages" class="nav-item" data-view="messages">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </span>
+          <span class="nav-label">Messages</span>
+          <span class="nav-badge" id="navUnreadMsgsBadge">3</span>
+        </a>
+
+        <a href="#settings" class="nav-item" data-view="settings">
+          <span class="nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </span>
+          <span class="nav-label">Settings</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer User Profile -->
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="sidebarUserBox" role="button" tabindex="0">
+          <div class="user-avatar" id="sidebarUserAvatar">MK</div>
+          <div class="user-info">
+            <span class="user-name" id="sidebarUserName">Marcus Vance</span>
+            <span class="user-role">Managing Director</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- -----------------------------------------------------------------------
+         MAIN APPLICATION LAYOUT (HEADER + CONTENT + FOOTER)
+         ----------------------------------------------------------------------- -->
+    <div class="main-layout">
+      <!-- Sticky Top Navigation Header -->
+      <header class="app-header" id="appHeader">
+        <div class="header-left">
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Mobile Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Working Global Search Box -->
+          <div class="header-search-box">
+            <span class="search-icon-pos">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input type="text" id="globalHeaderSearch" class="header-search-input" placeholder="Search campaigns, leads, clients..." autocomplete="off">
+            <span class="search-shortcut-badge">Ctrl K</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Date Range Selector -->
+          <div class="date-filter-wrapper" id="dateFilterToolbar" role="group" aria-label="Time period selector">
+            <button class="date-btn" data-period="today">Today</button>
+            <button class="date-btn" data-period="7d">7 Days</button>
+            <button class="date-btn active" data-period="30d">30 Days</button>
+            <button class="date-btn" data-period="90d">90 Days</button>
+            <button class="date-btn" data-period="custom" id="customDateBtn">Custom</button>
+          </div>
+
+          <!-- Quick Add Action Button -->
+          <button class="btn-quick-add" id="quickAddBtn" aria-label="Quick Create">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Quick Add</span>
+          </button>
+
+          <!-- Quick Add Dropdown Menu -->
+          <div class="dropdown-menu" id="quickAddMenu">
+            <div class="dropdown-header">Create New Record</div>
+            <button class="dropdown-item" id="qaNewCampaign">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span>New Campaign</span>
+            </button>
+            <button class="dropdown-item" id="qaNewClient">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              <span>New Client</span>
+            </button>
+            <button class="dropdown-item" id="qaNewLead">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line></svg>
+              <span>New Lead</span>
+            </button>
+            <button class="dropdown-item" id="qaNewTask">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              <span>New Task</span>
+            </button>
+            <button class="dropdown-item" id="qaNewEvent">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+              <span>New Calendar Event</span>
+            </button>
+          </div>
+
+          <!-- Messages Quick Trigger -->
+          <button class="header-action-btn" id="headerMsgBtn" title="Direct Messages" aria-label="Messages">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="header-action-badge"></span>
+          </button>
+
+          <!-- Notifications Center Button -->
+          <div style="position: relative;">
+            <button class="header-action-btn" id="headerNotifBtn" title="Notifications" aria-label="Notifications">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="header-action-badge" id="notifBadgeDot"></span>
+            </button>
+
+            <!-- Notifications Flyout Drawer -->
+            <div class="dropdown-menu notification-panel" id="notificationPanel">
+              <div class="notif-header">
+                <span style="font-weight: 700; font-size: 0.92rem;">Notifications (<span id="unreadNotifCount">4</span>)</span>
+                <button class="notif-btn-mini" id="markAllNotifsReadBtn">Mark all as read</button>
+              </div>
+              <div class="notif-list" id="notifListContainer">
+                <!-- Notifications injected dynamically via JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- User Profile Menu -->
+          <div style="position: relative;">
+            <button class="profile-trigger-btn" id="profileTriggerBtn" aria-label="User Profile Menu">
+              <div class="profile-img-badge">MV</div>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <div class="dropdown-menu" id="profileDropdown">
+              <div class="dropdown-header">
+                <div style="font-weight: 700;">Marcus Vance</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted);">marcus@markora.agency</div>
+              </div>
+              <button class="dropdown-item" id="profileSettingsBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>Agency Settings</span>
+              </button>
+              <button class="dropdown-item" id="themeToggleQuickBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <span>Toggle Light/Dark</span>
+              </button>
+              <button class="dropdown-item danger" id="profileLogoutBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Demo Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- -----------------------------------------------------------------------
+           MAIN VIEW CONTENT CONTAINER
+           ----------------------------------------------------------------------- -->
+      <main class="main-content" id="mainContent">
+
+        <!-- ===================================================================
+             VIEW 1: OVERVIEW DASHBOARD
+             =================================================================== -->
+        <section class="view-section active" id="view-overview">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Marketing Overview</h1>
+              <p>Track campaigns, clients, leads and performance from one powerful workspace.</p>
+            </div>
+            <div class="view-actions-group">
+              <button class="btn btn-secondary" id="exportOverviewPdfBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Export Report</span>
+              </button>
+              <button class="btn btn-primary" id="overviewNewCampaignBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span>Launch Campaign</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 8 Animated KPI Cards -->
+          <div class="kpi-grid" id="kpiGrid">
+            <!-- 1. Total Revenue -->
+            <div class="kpi-card" data-kpi="revenue">
+              <div class="kpi-top">
+                <span class="kpi-label">Total Revenue</span>
+                <div class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </div>
+              </div>
+              <div class="kpi-val" id="kpiTotalRevenue">$248,560</div>
+              <div class="kpi-bottom">
+                <span class="kpi-trend positive">↑ +18.4%</span>
+                <span class="kpi-compare-text">vs previous period</span>
+              </div>
+            </div>
+
+            <!-- 2. Campaign Spend -->
+            <div class="kpi-card" data-kpi="spend">
+              <div class="kpi-top">
+                <span class="kpi-label">Campaign Spend</span>
+                <div class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="6" x2="12" y2="8"></line><line x1="12" y1="16" x2="12" y2="18"></line></svg>
+                </div>
+              </div>
+              <div class="kpi-val" id="kpiCampaignSpend">$72,840</div>
+              <div class="kpi-bottom">
+                <span class="kpi-trend positive">↓ -4.2%</span>
+                <span class="kpi-compare-text">optimized CAC</span>
+              </div>
+            </div>
+
+            <!-- 3. Leads Generated -->
+            <div class="kpi-card" data-kpi="leads">
+              <div class="kpi-top">
+                <span class="kpi-label">Leads Generated</span>
+                <div class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+              </div>
+              <div class="kpi-val" id="kpiLeadsGen">18,426</div>
+              <div class="kpi-bottom">
+                <span class="kpi-trend positive">↑ +24.8%</span>
+                <span class="kpi-compare-text">volume increase</span>
+              </div>
+            </div>
+
+            <!-- 4. Conversion Rate -->
+            <div class="kpi-card" data-kpi="conversion">
+              <div class="kpi-top">
+                <span class="kpi-label">Conversion Rate</span>
+                <div class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                </div>
+              </div>
+              <div class="kpi-val" id="kpiConvRate">8.64%</div>
+              <div class="kpi-bottom">
+                <span class="kpi-trend positive">↑ +1.28%</span>
+                <span class="kpi-compare-text">benchmark 5.2%</span>
+              </div>
+            </div>
+
+            <!-- 5. ROI -->
+            <div class="kpi-card" data-kpi="roi">
+              <div class="kpi-top">
+                <span class="kpi-label">Average ROI</span>
+                <div class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+              </div>
+              <div class="kpi-val" id="kpiROI">3.42x</div>
+              <div class="kpi-bottom">
+                <span class="kpi-trend positive">↑ +0.48x</span>
+                <span class="kpi-compare-text">high performance</span>
+              </div>
+            </div>
+
+            <!-- 6. Active Campaigns -->
+            <div class="kpi-card" data-kpi="campaigns">
+              <div class="kpi-top">
+                <span class="kpi-label">Active Campaigns</span>
+                <div class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+              </div>
+              <div class="kpi-val" id="kpiActiveCampaigns">24</div>
+              <div class="kpi-bottom">
+                <span class="kpi-trend positive">↑ 4 live now</span>
+                <span class="kpi-compare-text">5 under review</span>
+              </div>
+            </div>
+
+            <!-- 7. Client Accounts -->
+            <div class="kpi-card" data-kpi="clients">
+              <div class="kpi-top">
+                <span class="kpi-label">Client Accounts</span>
+                <div class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+              </div>
+              <div class="kpi-val" id="kpiClientAccounts">86</div>
+              <div class="kpi-bottom">
+                <span class="kpi-trend positive">↑ +6 new</span>
+                <span class="kpi-compare-text">98.2% retention</span>
+              </div>
+            </div>
+
+            <!-- 8. Qualified Leads -->
+            <div class="kpi-card" data-kpi="qualified">
+              <div class="kpi-top">
+                <span class="kpi-label">Qualified Leads (SQL)</span>
+                <div class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+              </div>
+              <div class="kpi-val" id="kpiQualifiedLeads">7,248</div>
+              <div class="kpi-bottom">
+                <span class="kpi-trend positive">↑ 39.3%</span>
+                <span class="kpi-compare-text">of total leads</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Revenue Performance & Channel Breakdown Section -->
+          <div class="analytics-grid">
+            <!-- Canvas Chart: Revenue & Spend -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-box">
+                  <h3>Revenue Performance</h3>
+                  <p>Consolidated gross revenue, advertising spend, and net margin</p>
+                </div>
+                <div class="chart-controls">
+                  <div class="chart-legend">
+                    <span><span class="legend-dot" style="background: var(--primary);"></span>Revenue</span>
+                    <span><span class="legend-dot" style="background: var(--rose);"></span>Spend</span>
+                    <span><span class="legend-dot" style="background: var(--emerald);"></span>Net Profit</span>
+                  </div>
+                  <div class="date-filter-wrapper">
+                    <button class="date-btn chart-filter-btn" data-range="7d">7D</button>
+                    <button class="date-btn chart-filter-btn active" data-range="30d">30D</button>
+                    <button class="date-btn chart-filter-btn" data-range="90d">90D</button>
+                    <button class="date-btn chart-filter-btn" data-range="1y">1Y</button>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper">
+                <canvas id="revenueAnalyticsCanvas"></canvas>
+              </div>
+            </div>
+
+            <!-- Marketing Channel Share -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-box">
+                  <h3>Channel Attribution</h3>
+                  <p>Performance share across acquisition networks</p>
+                </div>
+                <a href="#advertising" class="btn btn-outline btn-sm">Full Breakdown</a>
+              </div>
+              <div class="channel-list" id="overviewChannelList">
+                <!-- Dynamically Populated by script.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Campaigns Overview Snapshot -->
+          <div class="panel-card" style="margin-bottom: 28px;">
+            <div class="panel-header">
+              <div class="panel-title-box">
+                <h3>High-Impact Campaigns</h3>
+                <p>Real-time spend, leads and conversion monitoring</p>
+              </div>
+              <a href="#campaigns" class="btn btn-outline btn-sm">View All Campaigns (24)</a>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table" id="overviewCampaignsTable">
+                <thead>
+                  <tr>
+                    <th>Campaign Name</th>
+                    <th>Status</th>
+                    <th>Budget</th>
+                    <th>Spent</th>
+                    <th>Leads</th>
+                    <th>Conv. Rate</th>
+                    <th>ROI</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="overviewCampaignsBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 2: CAMPAIGNS MANAGEMENT
+             =================================================================== -->
+        <section class="view-section" id="view-campaigns">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Campaign Performance</h1>
+              <p>Create, manage, optimize, and evaluate multi-channel digital campaigns.</p>
+            </div>
+            <button class="btn btn-primary" id="openAddCampaignModalBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Create Campaign</span>
+            </button>
+          </div>
+
+          <!-- Filter Toolbar -->
+          <div class="filter-toolbar">
+            <div class="toolbar-left">
+              <input type="text" id="campaignSearchInput" class="search-input-field" placeholder="Filter campaigns by name or keyword...">
+              <select id="campaignStatusFilter" class="select-filter-field">
+                <option value="all">All Statuses</option>
+                <option value="Active">Active</option>
+                <option value="Paused">Paused</option>
+                <option value="Review">Review</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+            <div class="toolbar-right">
+              <span style="font-size: 0.8rem; color: var(--text-muted);"><span id="campaignsCountDisplay">0</span> campaigns found</span>
+            </div>
+          </div>
+
+          <!-- Campaigns Table / Grid -->
+          <div class="table-responsive">
+            <table class="data-table" id="campaignsMainTable">
+              <thead>
+                <tr>
+                  <th>Campaign Name</th>
+                  <th>Client</th>
+                  <th>Status</th>
+                  <th>Budget</th>
+                  <th>Spent</th>
+                  <th>Progress</th>
+                  <th>Leads</th>
+                  <th>Conversions</th>
+                  <th>ROI</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="campaignsTableBody">
+                <!-- Injected by script.js -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 3: CLIENT MANAGEMENT
+             =================================================================== -->
+        <section class="view-section" id="view-clients">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Client Accounts</h1>
+              <p>Manage enterprise clients, contract values, account managers and campaigns.</p>
+            </div>
+            <button class="btn btn-primary" id="openAddClientModalBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Client</span>
+            </button>
+          </div>
+
+          <div class="filter-toolbar">
+            <div class="toolbar-left">
+              <input type="text" id="clientSearchInput" class="search-input-field" placeholder="Search client company or manager...">
+              <select id="clientIndustryFilter" class="select-filter-field">
+                <option value="all">All Industries</option>
+                <option value="SaaS & Cloud">SaaS & Cloud</option>
+                <option value="E-Commerce">E-Commerce</option>
+                <option value="Fintech">Fintech</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Real Estate">Real Estate</option>
+              </select>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--text-muted);"><span id="clientsCountDisplay">0</span> accounts</span>
+          </div>
+
+          <div class="cards-grid-3" id="clientsGridContainer">
+            <!-- Client Cards Injected by script.js -->
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 4: LEADS MANAGEMENT (CRM)
+             =================================================================== -->
+        <section class="view-section" id="view-leads">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Leads Pipeline</h1>
+              <p>Capture, qualify, assign and convert incoming marketing opportunities.</p>
+            </div>
+            <button class="btn btn-primary" id="openAddLeadModalBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Lead</span>
+            </button>
+          </div>
+
+          <div class="filter-toolbar">
+            <div class="toolbar-left">
+              <input type="text" id="leadSearchInput" class="search-input-field" placeholder="Search lead name, company, email...">
+              <select id="leadStatusFilter" class="select-filter-field">
+                <option value="all">All Statuses</option>
+                <option value="New">New</option>
+                <option value="Contacted">Contacted</option>
+                <option value="Qualified">Qualified</option>
+                <option value="Proposal">Proposal</option>
+                <option value="Won">Won</option>
+                <option value="Lost">Lost</option>
+              </select>
+              <select id="leadSourceFilter" class="select-filter-field">
+                <option value="all">All Sources</option>
+                <option value="Google Ads">Google Ads</option>
+                <option value="Meta Ads">Meta Ads</option>
+                <option value="Organic Search">Organic Search</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Referral">Referral</option>
+              </select>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--text-muted);"><span id="leadsCountDisplay">0</span> leads</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="leadsMainTable">
+              <thead>
+                <tr>
+                  <th>Lead Name</th>
+                  <th>Company</th>
+                  <th>Source</th>
+                  <th>Campaign</th>
+                  <th>Status</th>
+                  <th>Est. Value</th>
+                  <th>Owner</th>
+                  <th>Last Contact</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="leadsTableBody">
+                <!-- Injected via script.js -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 5: ANALYTICS DEEP DIVE
+             =================================================================== -->
+        <section class="view-section" id="view-analytics">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Marketing Analytics</h1>
+              <p>Granular conversion rates, CAC efficiency, and return on ad spend (ROAS).</p>
+            </div>
+            <button class="btn btn-secondary" id="downloadAnalyticsCsvBtn">Download Metrics CSV</button>
+          </div>
+
+          <div class="analytics-grid">
+            <!-- CAC vs LTV Trend -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-box">
+                  <h3>Customer Acquisition Cost (CAC) vs LTV</h3>
+                  <p>Efficiency curves across the past 12 reporting periods</p>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper">
+                <canvas id="cacLtvChartCanvas"></canvas>
+              </div>
+            </div>
+
+            <!-- Conversion Funnel Breakdown -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div class="panel-title-box">
+                  <h3>Full-Funnel Velocity</h3>
+                  <p>Impressions to closed-won customer ratios</p>
+                </div>
+              </div>
+              <div class="channel-list" id="analyticsFunnelList">
+                <div class="channel-item">
+                  <div class="channel-info-row">
+                    <span class="channel-name">1. Total Impressions</span>
+                    <strong>1,420,000</strong>
+                  </div>
+                  <div class="channel-bar-bg"><div class="channel-bar-fill" style="width: 100%; background: var(--primary);"></div></div>
+                </div>
+                <div class="channel-item">
+                  <div class="channel-info-row">
+                    <span class="channel-name">2. Ad Clicks (CTR 3.4%)</span>
+                    <strong>48,280</strong>
+                  </div>
+                  <div class="channel-bar-bg"><div class="channel-bar-fill" style="width: 65%; background: var(--secondary);"></div></div>
+                </div>
+                <div class="channel-item">
+                  <div class="channel-info-row">
+                    <span class="channel-name">3. Marketing Leads</span>
+                    <strong>18,426</strong>
+                  </div>
+                  <div class="channel-bar-bg"><div class="channel-bar-fill" style="width: 42%; background: var(--purple-accent);"></div></div>
+                </div>
+                <div class="channel-item">
+                  <div class="channel-info-row">
+                    <span class="channel-name">4. Sales Qualified (SQL)</span>
+                    <strong>7,248</strong>
+                  </div>
+                  <div class="channel-bar-bg"><div class="channel-bar-fill" style="width: 25%; background: var(--amber);"></div></div>
+                </div>
+                <div class="channel-item">
+                  <div class="channel-info-row">
+                    <span class="channel-name">5. Closed-Won Deals</span>
+                    <strong>1,592</strong>
+                  </div>
+                  <div class="channel-bar-bg"><div class="channel-bar-fill" style="width: 14%; background: var(--emerald);"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 6: SOCIAL MEDIA ANALYTICS
+             =================================================================== -->
+        <section class="view-section" id="view-social">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Social Media Performance</h1>
+              <p>Audience growth, engagement benchmarks, and viral post analytics across platforms.</p>
+            </div>
+            <button class="btn btn-primary" id="syncSocialAccountsBtn">Sync Channels</button>
+          </div>
+
+          <div class="social-platforms-grid" id="socialCardsGrid">
+            <!-- Rendered by JS: Instagram, Facebook, TikTok, LinkedIn, YouTube, X -->
+          </div>
+
+          <!-- Top Performing Content List -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title-box">
+                <h3>Top Performing Social Creatives</h3>
+                <p>Posts with maximum engagement velocity this month</p>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Creative Content</th>
+                    <th>Platform</th>
+                    <th>Reach</th>
+                    <th>Impressions</th>
+                    <th>Engagement Rate</th>
+                    <th>Shares / Saves</th>
+                    <th>Conversion</th>
+                  </tr>
+                </thead>
+                <tbody id="topSocialPostsBody">
+                  <!-- Injected via script.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 7: SEO ANALYTICS
+             =================================================================== -->
+        <section class="view-section" id="view-seo">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Search Engine Optimization (SEO)</h1>
+              <p>Monitor organic rankings, backlink velocity, domain authority, and keyword positions.</p>
+            </div>
+            <button class="btn btn-secondary" id="runSeoAuditBtn">Run Instant Audit</button>
+          </div>
+
+          <!-- SEO KPI Stat Ribbon -->
+          <div class="seo-metrics-banner">
+            <div class="seo-metric-box">
+              <div class="seo-metric-val">1.28M</div>
+              <div class="seo-metric-title">Organic Traffic</div>
+            </div>
+            <div class="seo-metric-box">
+              <div class="seo-metric-val">4,812</div>
+              <div class="seo-metric-title">Ranked Keywords</div>
+            </div>
+            <div class="seo-metric-box">
+              <div class="seo-metric-val">4.2</div>
+              <div class="seo-metric-title">Average Position</div>
+            </div>
+            <div class="seo-metric-box">
+              <div class="seo-metric-val">48,920</div>
+              <div class="seo-metric-title">Total Backlinks</div>
+            </div>
+            <div class="seo-metric-box">
+              <div class="seo-metric-val">79 / 100</div>
+              <div class="seo-metric-title">Domain Authority (DA)</div>
+            </div>
+            <div class="seo-metric-box">
+              <div class="seo-metric-val">6.4%</div>
+              <div class="seo-metric-title">Organic CTR</div>
+            </div>
+          </div>
+
+          <!-- Top Keywords Table -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title-box">
+                <h3>Top Keywords Ranking</h3>
+                <p>Organic search queries driving inbound commercial traffic</p>
+              </div>
+              <div class="toolbar-left">
+                <input type="text" id="seoKeywordSearch" class="search-input-field" placeholder="Search keyword..." style="width: 220px;">
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table" id="seoKeywordsTable">
+                <thead>
+                  <tr>
+                    <th>Keyword Query</th>
+                    <th>Current Rank</th>
+                    <th>Search Volume</th>
+                    <th>Difficulty</th>
+                    <th>Est. Monthly Traffic</th>
+                    <th>Change (30D)</th>
+                    <th>Intent</th>
+                  </tr>
+                </thead>
+                <tbody id="seoKeywordsBody">
+                  <!-- Injected via script.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 8: CONTENT MANAGEMENT
+             =================================================================== -->
+        <section class="view-section" id="view-content">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Content Management System</h1>
+              <p>Plan, review, publish and analyze multimedia content assets.</p>
+            </div>
+            <button class="btn btn-primary" id="openAddContentModalBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Create Content</span>
+            </button>
+          </div>
+
+          <div class="filter-toolbar">
+            <div class="toolbar-left">
+              <input type="text" id="contentSearchInput" class="search-input-field" placeholder="Search title, author or platform...">
+              <select id="contentTypeFilter" class="select-filter-field">
+                <option value="all">All Content Types</option>
+                <option value="Blog">Blog Article</option>
+                <option value="Social Post">Social Post</option>
+                <option value="Video">Video</option>
+                <option value="Ad Creative">Ad Creative</option>
+                <option value="Email">Email</option>
+                <option value="Landing Page">Landing Page</option>
+              </select>
+              <select id="contentStatusFilter" class="select-filter-field">
+                <option value="all">All Statuses</option>
+                <option value="Published">Published</option>
+                <option value="Scheduled">Scheduled</option>
+                <option value="Review">Review</option>
+                <option value="Draft">Draft</option>
+              </select>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--text-muted);"><span id="contentCountDisplay">0</span> items</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="contentMainTable">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Platform</th>
+                  <th>Author</th>
+                  <th>Status</th>
+                  <th>Scheduled / Published</th>
+                  <th>Performance</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="contentTableBody">
+                <!-- Injected via script.js -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 9: ADVERTISING MANAGEMENT
+             =================================================================== -->
+        <section class="view-section" id="view-advertising">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Omnichannel Advertising</h1>
+              <p>Budget allocation, CPA bidding, ROAS metrics, and paid media distribution.</p>
+            </div>
+            <button class="btn btn-primary" id="adNewBudgetBtn">Adjust Budgets</button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="adChannelsTable">
+              <thead>
+                <tr>
+                  <th>Ad Network</th>
+                  <th>Total Spend</th>
+                  <th>Total Reach</th>
+                  <th>Clicks</th>
+                  <th>Avg. CTR</th>
+                  <th>Conversions</th>
+                  <th>Avg. CPA</th>
+                  <th>Generated Revenue</th>
+                  <th>Net ROI</th>
+                </tr>
+              </thead>
+              <tbody id="adChannelsTableBody">
+                <!-- Injected via script.js -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 10: TASK MANAGEMENT
+             =================================================================== -->
+        <section class="view-section" id="view-tasks">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Team Task Board</h1>
+              <p>Track deadlines, deliverables, creative sprints, and operational duties.</p>
+            </div>
+            <button class="btn btn-primary" id="openAddTaskModalBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Task</span>
+            </button>
+          </div>
+
+          <div class="filter-toolbar">
+            <div class="toolbar-left">
+              <input type="text" id="taskSearchInput" class="search-input-field" placeholder="Search tasks...">
+              <select id="taskPriorityFilter" class="select-filter-field">
+                <option value="all">All Priorities</option>
+                <option value="Urgent">Urgent</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+            <div class="toolbar-right">
+              <span style="font-size: 0.8rem; color: var(--text-muted);"><span id="tasksRemainingDisplay">0</span> remaining</span>
+            </div>
+          </div>
+
+          <!-- Kanban Style Task Columns -->
+          <div class="tasks-container" id="tasksColumnsContainer">
+            <!-- Injected via script.js: To Do, In Progress, Review, Completed -->
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 11: MARKETING CALENDAR
+             =================================================================== -->
+        <section class="view-section" id="view-calendar">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Marketing Calendar</h1>
+              <p>Coordinate campaign launches, content publishing, webinars, and reviews.</p>
+            </div>
+            <button class="btn btn-primary" id="openAddEventModalBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Schedule Event</span>
+            </button>
+          </div>
+
+          <div class="calendar-layout">
+            <div class="calendar-top-controls">
+              <div class="calendar-month-title" id="calendarMonthTitle">September 2026</div>
+              <div class="toolbar-right">
+                <button class="btn btn-secondary btn-sm" id="calPrevMonthBtn">← Previous</button>
+                <button class="btn btn-outline btn-sm" id="calTodayBtn">Today</button>
+                <button class="btn btn-secondary btn-sm" id="calNextMonthBtn">Next →</button>
+              </div>
+            </div>
+
+            <!-- Week Header -->
+            <div class="calendar-grid" style="margin-bottom: 6px;">
+              <div class="calendar-day-header">Sun</div>
+              <div class="calendar-day-header">Mon</div>
+              <div class="calendar-day-header">Tue</div>
+              <div class="calendar-day-header">Wed</div>
+              <div class="calendar-day-header">Thu</div>
+              <div class="calendar-day-header">Fri</div>
+              <div class="calendar-day-header">Sat</div>
+            </div>
+
+            <!-- Calendar Days Cells Grid -->
+            <div class="calendar-grid" id="calendarDaysGrid">
+              <!-- Rendered dynamically by script.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 12: REPORTS GENERATOR
+             =================================================================== -->
+        <section class="view-section" id="view-reports">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Executive Reports</h1>
+              <p>Generate, review, and download automated agency and client intelligence reports.</p>
+            </div>
+            <button class="btn btn-primary" id="generateNewReportBtn">Generate Custom Report</button>
+          </div>
+
+          <div class="cards-grid-3" id="reportsGridContainer">
+            <!-- Cards for: Campaign Report, Client Report, Revenue Report, SEO Report, Social Media Report, Advertising Report -->
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 13: TEAM MANAGEMENT
+             =================================================================== -->
+        <section class="view-section" id="view-team">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Agency Team & Specialists</h1>
+              <p>Manage in-house strategists, campaign managers, creative leads, and specialists.</p>
+            </div>
+            <button class="btn btn-primary" id="openAddMemberModalBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Member</span>
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="teamMainTable">
+              <thead>
+                <tr>
+                  <th>Team Member</th>
+                  <th>Role</th>
+                  <th>Active Projects</th>
+                  <th>Assigned Tasks</th>
+                  <th>Performance Rating</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="teamTableBody">
+                <!-- Injected via script.js -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 14: MESSAGES & COMMUNICATIONS
+             =================================================================== -->
+        <section class="view-section" id="view-messages">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Agency Messaging Center</h1>
+              <p>Direct communications with clients, media buyers, strategists and designers.</p>
+            </div>
+          </div>
+
+          <div class="messages-box">
+            <!-- Left: Conversations List -->
+            <div class="conversations-sidebar">
+              <div class="conv-search-box">
+                <input type="text" id="convSearchInput" class="search-input-field" placeholder="Search conversations...">
+              </div>
+              <div class="conv-list" id="conversationsList">
+                <!-- Conversation Threads Injected via script.js -->
+              </div>
+            </div>
+
+            <!-- Right: Active Chat Window -->
+            <div class="chat-window" id="activeChatWindow">
+              <div class="chat-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div class="conv-avatar" id="chatHeaderAvatar" style="width: 36px; height: 36px;">EM</div>
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.92rem;" id="chatHeaderName">Elena Rostova</div>
+                    <div style="font-size: 0.72rem; color: var(--emerald);" id="chatHeaderStatus">Online • Acuity Labs</div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 6px;">
+                  <button class="btn-icon-table" id="chatQuickCallBtn" title="Simulate Call">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Chat Message Feed -->
+              <div class="chat-body" id="chatMessageBody">
+                <!-- Messages populated via script.js -->
+              </div>
+
+              <!-- Message Composer -->
+              <form class="chat-input-row" id="chatMessageForm">
+                <input type="text" id="chatTextInput" class="chat-input" placeholder="Type an update or instruction..." autocomplete="off">
+                <button type="submit" class="btn btn-primary" style="height: 42px; padding: 0 18px;">
+                  <span>Send</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             VIEW 15: SETTINGS
+             =================================================================== -->
+        <section class="view-section" id="view-settings">
+          <div class="view-header">
+            <div class="view-title-group">
+              <h1>Agency Settings & Preferences</h1>
+              <p>Configure agency metadata, theme mode, visual density, and notifications.</p>
+            </div>
+            <button class="btn btn-primary" id="saveAgencySettingsBtn">Save Preferences</button>
+          </div>
+
+          <div class="settings-grid">
+            <div class="settings-nav">
+              <button class="settings-nav-btn active" data-tab="general">General & Agency</button>
+              <button class="settings-nav-btn" data-tab="appearance">Appearance & Theme</button>
+              <button class="settings-nav-btn" data-tab="notifications">Alerts & Notifications</button>
+              <button class="settings-nav-btn" data-tab="danger">Data Management</button>
+            </div>
+
+            <!-- Tab: General -->
+            <div class="settings-content-card" id="settingsTab-general">
+              <h3 style="margin-bottom: 16px; font-size: 1.15rem;">Agency Details</h3>
+              <div class="form-layout">
+                <div class="form-field">
+                  <label>Agency Name</label>
+                  <input type="text" id="settingAgencyName" class="form-control" value="MARKORA Global Media">
+                </div>
+                <div class="form-field">
+                  <label>Contact Email</label>
+                  <input type="email" id="settingAgencyEmail" class="form-control" value="support@markora.agency">
+                </div>
+                <div class="form-field">
+                  <label>Default Currency</label>
+                  <select id="settingCurrency" class="form-control">
+                    <option value="USD" selected>USD ($) - United States Dollar</option>
+                    <option value="EUR">EUR (€) - Euro</option>
+                    <option value="GBP">GBP (£) - British Pound</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Timezone</label>
+                  <select id="settingTimezone" class="form-control">
+                    <option value="UTC-5" selected>UTC-05:00 Eastern Time (US & Canada)</option>
+                    <option value="UTC+0">UTC+00:00 London / Greenwich</option>
+                    <option value="UTC+1">UTC+01:00 Central European Time</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Appearance -->
+            <div class="settings-content-card" id="settingsTab-appearance" style="display: none;">
+              <h3 style="margin-bottom: 16px; font-size: 1.15rem;">Appearance & Visuals</h3>
+              <div class="form-group-row">
+                <div>
+                  <div class="form-label-title">Dark Theme</div>
+                  <div class="form-label-desc">Toggle between Obsidian Dark and Clean Light mode</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="settingThemeToggle" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="form-group-row">
+                <div>
+                  <div class="form-label-title">Compact Grid Density</div>
+                  <div class="form-label-desc">Reduces card paddings and table heights for high-density monitors</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="settingCompactToggle">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="form-group-row">
+                <div>
+                  <div class="form-label-title">Sidebar Auto-Collapse</div>
+                  <div class="form-label-desc">Keep sidebar minimized to expand main workspace</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="settingCollapseToggle">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Tab: Notifications -->
+            <div class="settings-content-card" id="settingsTab-notifications" style="display: none;">
+              <h3 style="margin-bottom: 16px; font-size: 1.15rem;">Alert Preferences</h3>
+              <div class="form-group-row">
+                <div>
+                  <div class="form-label-title">Lead Acquisition Alerts</div>
+                  <div class="form-label-desc">Notify whenever a new high-value lead is submitted</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="form-group-row">
+                <div>
+                  <div class="form-label-title">Budget Threshold Warnings</div>
+                  <div class="form-label-desc">Trigger notification when campaign spend exceeds 85% of budget</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="form-group-row">
+                <div>
+                  <div class="form-label-title">Weekly Executive Digest</div>
+                  <div class="form-label-desc">Send automated performance summaries every Monday at 08:00 AM</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Tab: Data Management -->
+            <div class="settings-content-card" id="settingsTab-danger" style="display: none;">
+              <h3 style="margin-bottom: 16px; font-size: 1.15rem; color: var(--rose);">Data State & Maintenance</h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;">
+                MARKORA automatically stores your campaigns, clients, leads, tasks, and calendar events in your browser's persistent LocalStorage.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <button class="btn btn-secondary" id="exportDataJsonBtn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export All Data Backup (JSON)</span>
+                </button>
+                <button class="btn btn-danger" id="resetToDemoDataBtn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+                  <span>Reset to Original Demo Data</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- -----------------------------------------------------------------------
+           GLOBAL FOOTER
+           ----------------------------------------------------------------------- -->
+      <footer class="app-footer">
+        <div>
+          <strong>MARKORA™</strong> — Marketing Intelligence Platform • © 2026 MARKORA. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="#overview" id="footerPrivacyLink">Privacy Policy</a>
+          <a href="#overview" id="footerTermsLink">Terms of Service</a>
+          <a href="#messages" id="footerSupportLink">Agency Support</a>
+          <a href="#reports" id="footerDocsLink">System Documentation</a>
+        </div>
+      </footer>
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       2. MODALS & FLYOUT OVERLAYS
+       ========================================================================= -->
+
+  <!-- Modal: Create / Edit Campaign -->
+  <div class="modal-overlay" id="campaignModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="campaignModalTitle">Create Marketing Campaign</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <form id="campaignForm">
+        <div class="modal-body form-layout">
+          <input type="hidden" id="campaignFormId">
+          <div class="form-field">
+            <label for="campaignName">Campaign Title *</label>
+            <input type="text" id="campaignName" class="form-control" placeholder="e.g. Q4 Growth Acceleration" required>
+            <span class="form-error-msg">Campaign title is required.</span>
+          </div>
+          <div class="form-field">
+            <label for="campaignClient">Target Client Account *</label>
+            <input type="text" id="campaignClient" class="form-control" placeholder="e.g. Apex Global SaaS" required>
+          </div>
+          <div class="form-field">
+            <label for="campaignStatus">Status</label>
+            <select id="campaignStatus" class="form-control">
+              <option value="Active">Active</option>
+              <option value="Review">Review</option>
+              <option value="Paused">Paused</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="campaignBudget">Total Budget ($)</label>
+              <input type="number" id="campaignBudget" class="form-control" value="25000" min="500">
+            </div>
+            <div class="form-field">
+              <label for="campaignSpent">Current Spend ($)</label>
+              <input type="number" id="campaignSpent" class="form-control" value="12400" min="0">
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="campaignLeads">Leads Generated</label>
+              <input type="number" id="campaignLeads" class="form-control" value="840" min="0">
+            </div>
+            <div class="form-field">
+              <label for="campaignRoi">Expected ROI (x)</label>
+              <input type="number" step="0.1" id="campaignRoi" class="form-control" value="3.4" min="0">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveCampaignSubmitBtn">Save Campaign</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Create / Edit Client -->
+  <div class="modal-overlay" id="clientModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="clientModalTitle">Add New Client Account</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <form id="clientForm">
+        <div class="modal-body form-layout">
+          <input type="hidden" id="clientFormId">
+          <div class="form-field">
+            <label for="clientCompany">Company Name *</label>
+            <input type="text" id="clientCompany" class="form-control" placeholder="e.g. Lumina Cloud Corp" required>
+          </div>
+          <div class="form-field">
+            <label for="clientIndustry">Industry Sector *</label>
+            <select id="clientIndustry" class="form-control">
+              <option value="SaaS & Cloud">SaaS & Cloud</option>
+              <option value="E-Commerce">E-Commerce</option>
+              <option value="Fintech">Fintech</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Real Estate">Real Estate</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="clientManager">Account Manager</label>
+            <input type="text" id="clientManager" class="form-control" placeholder="e.g. Sarah Jenkins" value="Sarah Jenkins">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="clientSpend">Monthly Spend ($)</label>
+              <input type="number" id="clientSpend" class="form-control" value="18500">
+            </div>
+            <div class="form-field">
+              <label for="clientRevenue">Total Revenue ($)</label>
+              <input type="number" id="clientRevenue" class="form-control" value="74000">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="clientStatus">Account Status</label>
+            <select id="clientStatus" class="form-control">
+              <option value="Active">Active</option>
+              <option value="Onboarding">Onboarding</option>
+              <option value="Review">Review</option>
+              <option value="Paused">Paused</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Client</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Create / Edit Lead -->
+  <div class="modal-overlay" id="leadModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="leadModalTitle">Add Lead Record</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <form id="leadForm">
+        <div class="modal-body form-layout">
+          <input type="hidden" id="leadFormId">
+          <div class="form-field">
+            <label for="leadName">Contact Name *</label>
+            <input type="text" id="leadName" class="form-control" placeholder="e.g. Daniel Croft" required>
+          </div>
+          <div class="form-field">
+            <label for="leadCompany">Company *</label>
+            <input type="text" id="leadCompany" class="form-control" placeholder="e.g. Vantage Commerce" required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="leadSource">Acquisition Source</label>
+              <select id="leadSource" class="form-control">
+                <option value="Google Ads">Google Ads</option>
+                <option value="Meta Ads">Meta Ads</option>
+                <option value="Organic Search">Organic Search</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Referral">Referral</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="leadStatus">Pipeline Stage</label>
+              <select id="leadStatus" class="form-control">
+                <option value="New">New</option>
+                <option value="Contacted">Contacted</option>
+                <option value="Qualified">Qualified</option>
+                <option value="Proposal">Proposal</option>
+                <option value="Won">Won</option>
+                <option value="Lost">Lost</option>
+              </select>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="leadValue">Estimated Deal Value ($)</label>
+              <input type="number" id="leadValue" class="form-control" value="28000">
+            </div>
+            <div class="form-field">
+              <label for="leadOwner">Deal Owner</label>
+              <input type="text" id="leadOwner" class="form-control" value="Marcus Vance">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Lead</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Create / Edit Task -->
+  <div class="modal-overlay" id="taskModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="taskModalTitle">Create Team Task</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <form id="taskForm">
+        <div class="modal-body form-layout">
+          <input type="hidden" id="taskFormId">
+          <div class="form-field">
+            <label for="taskTitle">Task Description *</label>
+            <input type="text" id="taskTitle" class="form-control" placeholder="e.g. Audit Google Ads Search Negative Keywords" required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="taskPriority">Priority Level</label>
+              <select id="taskPriority" class="form-control">
+                <option value="Urgent">Urgent</option>
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="taskColumn">Kanban Stage</label>
+              <select id="taskColumn" class="form-control">
+                <option value="todo">To Do</option>
+                <option value="inprogress">In Progress</option>
+                <option value="review">Review</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="taskAssignee">Assignee</label>
+              <input type="text" id="taskAssignee" class="form-control" value="Liam Thorne">
+            </div>
+            <div class="form-field">
+              <label for="taskDueDate">Due Date</label>
+              <input type="date" id="taskDueDate" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Create / Edit Content -->
+  <div class="modal-overlay" id="contentModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="contentModalTitle">Create Content Piece</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <form id="contentForm">
+        <div class="modal-body form-layout">
+          <input type="hidden" id="contentFormId">
+          <div class="form-field">
+            <label for="contentTitle">Content Headline / Topic *</label>
+            <input type="text" id="contentTitle" class="form-control" placeholder="e.g. 10 B2B Growth Hacks for SaaS in 2026" required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="contentType">Content Type</label>
+              <select id="contentType" class="form-control">
+                <option value="Blog">Blog Article</option>
+                <option value="Social Post">Social Post</option>
+                <option value="Video">Video Creative</option>
+                <option value="Ad Creative">Ad Creative</option>
+                <option value="Email">Email Newsletter</option>
+                <option value="Landing Page">Landing Page</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="contentPlatform">Publishing Channel</label>
+              <input type="text" id="contentPlatform" class="form-control" value="LinkedIn & Blog">
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="contentAuthor">Author / Strategist</label>
+              <input type="text" id="contentAuthor" class="form-control" value="Chloe Bennett">
+            </div>
+            <div class="form-field">
+              <label for="contentStatus">Publication Status</label>
+              <select id="contentStatus" class="form-control">
+                <option value="Scheduled">Scheduled</option>
+                <option value="Published">Published</option>
+                <option value="Review">Review</option>
+                <option value="Draft">Draft</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Content</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Calendar Event -->
+  <div class="modal-overlay" id="eventModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eventModalTitle">Schedule Marketing Milestone</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <form id="eventForm">
+        <div class="modal-body form-layout">
+          <input type="hidden" id="eventFormId">
+          <div class="form-field">
+            <label for="eventTitle">Event / Deadline Title *</label>
+            <input type="text" id="eventTitle" class="form-control" placeholder="e.g. Summer Growth Campaign Kickoff" required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="form-field">
+              <label for="eventType">Category</label>
+              <select id="eventType" class="form-control">
+                <option value="event-campaign">Campaign Launch</option>
+                <option value="event-meeting">Client Meeting</option>
+                <option value="event-content">Content Publishing</option>
+                <option value="event-deadline">Ad / Deliverable Deadline</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="eventDay">Day of Month (1-31)</label>
+              <input type="number" id="eventDay" class="form-control" min="1" max="31" value="15" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Global Spotlight Search (Ctrl + K) -->
+  <div class="modal-overlay" id="searchModal">
+    <div class="modal-container search-modal-box">
+      <div class="search-modal-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="spotlightSearchInput" class="search-modal-input" placeholder="Search anything across MARKORA..." autocomplete="off">
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <div class="search-results-box" id="spotlightResultsBox">
+        <!-- Results rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Report Preview Modal -->
+  <div class="modal-overlay" id="reportPreviewModal">
+    <div class="modal-container" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="reportPreviewTitle">Executive Intelligence Report</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body" id="reportPreviewContent" style="font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; background: var(--bg-input); padding: 18px; border-radius: var(--radius-md);">
+        <!-- Injected by script.js -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-close-trigger">Close</button>
+        <button type="button" class="btn btn-primary" id="downloadReportFileBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Download Document</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Generic Confirmation Modal -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-container" style="max-width: 420px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="confirmModalTitle">Confirm Action</h3>
+        <button class="modal-close-btn modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirmModalMessage" style="color: var(--text-secondary); font-size: 0.9rem;">Are you sure you want to delete this record? This action cannot be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmModalProceedBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       3. AUTHENTICATION MODAL OVERLAY (DEMO LOGIN SCREEN)
+       ========================================================================= -->
+  <div class="auth-overlay" id="authOverlay">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="brand-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19V5l8 7 8-7v14" />
+            <polyline points="14 10 20 4" />
+          </svg>
+        </div>
+        <h2>MARKORA</h2>
+        <p>Turn Marketing Data Into Growth.</p>
+      </div>
+
+      <form id="authForm" class="form-layout">
+        <div class="form-field">
+          <label for="authEmail">Work Email</label>
+          <input type="email" id="authEmail" class="form-control" value="marcus@markora.agency" required>
+        </div>
+        <div class="form-field">
+          <label for="authPassword">Password</label>
+          <input type="password" id="authPassword" class="form-control" value="••••••••••••" required>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="authRememberMe" checked>
+            <span>Remember Me</span>
+          </label>
+          <a href="#" id="authForgotPwdBtn" style="color: var(--primary-light);">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary" style="height: 42px;">Sign In to Workspace</button>
+      </form>
+
+      <div class="demo-login-box">
+        <button type="button" class="btn btn-secondary" id="demoDirectLoginBtn" style="width: 100%;">
+          <span>🚀 Instant Demo Access (1-Click)</span>
+        </button>
+        <span style="font-size: 0.7rem; color: var(--text-muted); text-align: center;">No registration or credentials needed for demo exploration.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Direct Local JavaScript Engine -->
+  <script src="script.js"></script>
+</body>
+</html>
